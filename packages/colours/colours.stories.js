@@ -2,7 +2,6 @@ import React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import * as colours from './colours.js'
-import { version } from './package.json'
 
 const list = css`
   display: flex;
@@ -25,12 +24,12 @@ const ColourBox = styled.div`
   border-radius: 8px;
 `
 
-export default {
-  title: 'Design System|Colours',
-  parameters: {
-    componentSubtitle: `version ${version}`,
-  },
-}
+// export default {
+//   title: 'Design System|Colours',
+//   parameters: {
+//     componentSubtitle: `version ${version}`,
+//   },
+// }
 
 export const Default = () => {
   const colourNames = Object.keys(colours)

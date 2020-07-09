@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { withKnobs, text, select, object, number } from '@storybook/addon-knobs'
+import { text, select, object, number } from '@storybook/addon-knobs'
 import Dropdown from './Dropdown'
-export default {
-  title: 'Design System|Dropdown',
-  component: Dropdown,
-  decorators: [withKnobs],
-}
+
+// export default {
+//   title: 'Design System|Dropdown',
+//   component: Dropdown,
+//   decorators: [withKnobs],
+// }
 
 const cities = [
   { label: 'Toronto', value: '1' },

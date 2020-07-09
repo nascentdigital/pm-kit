@@ -1,16 +1,15 @@
 import React, { useRef, useState } from 'react'
-import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs'
+import { text, select, boolean, object } from '@storybook/addon-knobs'
 import Input from './Input.jsx'
-import { version } from './package.json'
 
-export default {
-  title: 'Design System|Input',
-  component: Input,
-  parameters: {
-    componentSubtitle: `version ${version}`,
-  },
-  decorators: [withKnobs],
-}
+// export default {
+//   title: 'Design System|Input',
+//   component: Input,
+//   parameters: {
+//     componentSubtitle: `version ${version}`,
+//   },
+//   decorators: [withKnobs],
+// }
 
 export const Default = () => <Input placeholder="Placeholder" label="Label" />
 
