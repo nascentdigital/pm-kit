@@ -1,26 +1,27 @@
 import React from 'react'
-import { render } from 'enzyme'
+import { render, mount } from 'enzyme'
 
-import FeedbackIcon from '../FeedbackIcon'
+import FeedbackIcon, { FEEDBACK_ICON_NAME, SIZES } from '../FeedbackIcon'
 
 describe('FeedbackIcon', () => {
-  it('renders nothing when disabled', () => {
-    const feedbackIcon = render(<FeedbackIcon state="disabled" />)
-    expect(feedbackIcon).toMatchSnapshot()
-  })
+  const defaultProps = {
+    name: FEEDBACK_ICON_NAME.CHECKMARK,
+  }
 
-  it('renders checkmark when success', () => {
-    const feedbackIcon = render(<FeedbackIcon state="success" />)
-    expect(feedbackIcon).toMatchSnapshot()
-  })
+  const doMount = (overrides = {}) => {
+    const feedbackIcon = mount(<FeedbackIcon {...defaultProps} {...overrides} />)
 
-  it('renders error icon when error', () => {
-    const feedbackIcon = render(<FeedbackIcon state="error" />)
-    expect(feedbackIcon).toMatchSnapshot()
-  })
+    const findFeedbackIcon = () => feedbackIcon.find('img')
 
-  it('renders spinner when waiting', () => {
-    const feedbackIcon = render(<FeedbackIcon state="waiting" />)
-    expect(feedbackIcon).toMatchSnapshot()
+    return {
+      feedbackIcon,
+      name: feedbackIcon.find('name'),
+      findFeedbackIcon,
+    }
+  }
+
+  it('renders correct icon', () => {
+    const checkMarkImage = doMount({ size: SIZES.SMALL }).findFeedbackIcon()
+    expect(checkMarkImage).toHaveProp('alt', FEEDBACK_ICON_NAME.CHECKMARK)
   })
 })

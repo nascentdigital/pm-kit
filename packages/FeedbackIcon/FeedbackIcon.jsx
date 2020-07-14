@@ -6,12 +6,43 @@ import PropTypes from 'prop-types'
 import { parkGreen } from '@pm-kit/colours'
 
 // images
-import { successPath, failPath } from '../../shared/svg/index'
+import {
+  successPath,
+  failPath,
+  alert,
+  arrowHideLillyGreen,
+  arrowShowLillyGreen,
+  chevronDown,
+  chevronLeft,
+  chevronRight,
+  chevronUp,
+  // delete,
+  hide,
+  minus,
+  plus,
+  refresh,
+  showPassword,
+  toolTip,
+} from '../../shared/svg/index'
 
 // keys of available icons
 export const FEEDBACK_ICON_NAME = {
   CHECKMARK: 'checkmark',
   ERROR: 'error',
+  ALERT: 'alert',
+  ARROW_HIDE_LILLY_GREEN: 'arrowHideLillyGreen',
+  ARROW_SHOW_LILLY_GREEN: 'arrowShowLillyGreen',
+  CHEVRON_DOWN: 'chevronDown',
+  CHEVRON_UP: 'chevronUp',
+  CHEVRON_RIGHT: 'chevronRight',
+  CHEVRON_LEFT: 'chevronLeft',
+  // DELETE: 'delete',
+  HIDE: 'hide',
+  MINUS: 'minus',
+  PLUS: 'plus',
+  REFRESH: 'refresh',
+  SHOW_PASSWORD: 'showPassword',
+  TOOL_TIP: 'toolTip',
   LOADER: 'loader',
 }
 
@@ -25,13 +56,65 @@ const FEEDBACK_ICON_DATA = [
     key: FEEDBACK_ICON_NAME.ERROR,
     file: failPath,
   },
+  {
+    key: FEEDBACK_ICON_NAME.ALERT,
+    file: alert,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.ARROW_SHOW_LILLY_GREEN,
+    file: arrowShowLillyGreen,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.ARROW_HIDE_LILLY_GREEN,
+    file: arrowHideLillyGreen,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.CHEVRON_DOWN,
+    file: chevronDown,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.CHEVRON_UP,
+    file: chevronUp,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.CHEVRON_LEFT,
+    file: chevronLeft,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.CHEVRON_RIGHT,
+    file: chevronRight,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.HIDE,
+    file: hide,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.MINUS,
+    file: minus,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.PLUS,
+    file: plus,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.REFRESH,
+    file: refresh,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.SHOW_PASSWORD,
+    file: showPassword,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.TOOL_TIP,
+    file: toolTip,
+  },
 ]
 
 // keys of available sizes
 export const SIZES = {
   SMALL: '24px',
   MEDIUM: '36px',
-  LARGE: '48px',
+  LARGE: '80px',
 }
 
 const FeedbackIcon = ({ name, size, ...rest }) => {
@@ -80,7 +163,7 @@ FeedbackIcon.propTypes = {
 }
 
 FeedbackIcon.defaultProps = {
-  size: '1.125rem',
+  size: SIZES.SMALL,
 }
 
 export default FeedbackIcon

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`FeedbackIcon renders checkmark when success 1`] = `null`;
-
-exports[`FeedbackIcon renders error icon when error 1`] = `null`;
-
-exports[`FeedbackIcon renders nothing when disabled 1`] = `null`;
-
-exports[`FeedbackIcon renders spinner when waiting 1`] = `null`;
