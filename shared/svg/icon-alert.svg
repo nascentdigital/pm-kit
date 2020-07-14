@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+    <g fill="none" fill-rule="evenodd">
+        <circle cx="9" cy="9" r="8" stroke="#034045" stroke-width="2"/>
+        <text fill="#034045" font-family="CerebriSans-Bold, Cerebri Sans" font-size="14" font-weight="bold">
+            <tspan x="7" y="14">!</tspan>
+        </text>
+    </g>
+</svg>
