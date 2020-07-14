@@ -1,10 +1,42 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { parkGreen } from '@pm-kit/colours'
 import PropTypes from 'prop-types'
+
+// pm-kit
+import { parkGreen } from '@pm-kit/colours'
+
+// images
 import { successPath, failPath } from '../../shared/svg/index'
 
-const FeedbackIcon = ({ state, size }) => {
+// keys of available icons
+export const FEEDBACK_ICON_NAME = {
+  CHECKMARK: 'checkmark',
+  ERROR: 'error',
+  LOADER: 'loader',
+}
+
+// definitions of availabe svg icons
+const FEEDBACK_ICON_DATA = [
+  {
+    key: FEEDBACK_ICON_NAME.CHECKMARK,
+    file: successPath,
+  },
+  {
+    key: FEEDBACK_ICON_NAME.ERROR,
+    file: failPath,
+  },
+]
+
+// keys of available sizes
+export const SIZES = {
+  SMALL: '24px',
+  MEDIUM: '36px',
+  LARGE: '48px',
+}
+
+const FeedbackIcon = ({ name, size, ...rest }) => {
+  const iconData = FEEDBACK_ICON_DATA.filter((data) => data.key === name)
+
   const loader = css`
     @keyframes spinner {
       to {
@@ -17,25 +49,22 @@ const FeedbackIcon = ({ state, size }) => {
     display: inline-block;
     animation: 1s linear infinite spinner;
     animation-delay: var(--spinner-delay);
-    height: 100%;
-    width: 100%;
-  `
-
-  const imageStyles = css`
-    width: ${size};
     height: ${size};
+    width: ${size};
   `
 
   return (
-    <div css={imageStyles}>
-      {state !== 'disabled' && (
+    <>
+      {name === 'loader' ? (
+        <div css={loader} {...rest} />
+      ) : (
         <>
-          {state === 'waiting' && <div css={loader}></div>}
-          {state === 'success' && <img src={successPath} alt="success" />}
-          {state === 'error' && <img src={failPath} alt="error" />}
+          {iconData && iconData[0] && (
+            <img alt={iconData[0].key} height={size} src={iconData[0].file} weight={size} {...rest} />
+          )}
         </>
       )}
-    </div>
+    </>
   )
 }
 
@@ -43,15 +72,14 @@ FeedbackIcon.propTypes = {
   /**
    * The icon you want to render.
    */
-  state: PropTypes.oneOf(['waiting', 'success', 'error', 'disabled']),
+  name: PropTypes.oneOf([FEEDBACK_ICON_NAME.CHECKMARK, FEEDBACK_ICON_NAME.ERROR, FEEDBACK_ICON_NAME.LOADER]).isRequired,
   /**
    * The height and width of feedback-icon.
    */
-  size: PropTypes.string,
+  size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE]),
 }
 
 FeedbackIcon.defaultProps = {
-  state: 'disabled',
   size: '1.125rem',
 }
 
