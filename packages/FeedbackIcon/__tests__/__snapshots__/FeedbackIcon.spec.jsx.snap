@@ -1,72 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FeedbackIcon renders checkmark when success 1`] = `
-.emotion-0 {
-  width: 1.125rem;
-  height: 1.125rem;
-}
+exports[`FeedbackIcon renders checkmark when success 1`] = `null`;
 
-<div
-  class="emotion-0"
->
-  <img
-    alt="success"
-    src="test-file-stub"
-  />
-</div>
-`;
+exports[`FeedbackIcon renders error icon when error 1`] = `null`;
 
-exports[`FeedbackIcon renders error icon when error 1`] = `
-.emotion-0 {
-  width: 1.125rem;
-  height: 1.125rem;
-}
+exports[`FeedbackIcon renders nothing when disabled 1`] = `null`;
 
-<div
-  class="emotion-0"
->
-  <img
-    alt="error"
-    src="test-file-stub"
-  />
-</div>
-`;
-
-exports[`FeedbackIcon renders nothing when disabled 1`] = `
-.emotion-0 {
-  width: 1.125rem;
-  height: 1.125rem;
-}
-
-<div
-  class="emotion-0"
-/>
-`;
-
-exports[`FeedbackIcon renders spinner when waiting 1`] = `
-.emotion-1 {
-  width: 1.125rem;
-  height: 1.125rem;
-}
-
-.emotion-0 {
-  border: 3px solid #034045;
-  border-radius: 50%;
-  border-right-color: transparent;
-  display: inline-block;
-  -webkit-animation: 1s linear infinite spinner;
-  animation: 1s linear infinite spinner;
-  -webkit-animation-delay: var(--spinner-delay);
-  animation-delay: var(--spinner-delay);
-  height: 100%;
-  width: 100%;
-}
-
-<div
-  class="emotion-1"
->
-  <div
-    class="emotion-0"
-  />
-</div>
-`;
+exports[`FeedbackIcon renders spinner when waiting 1`] = `null`;

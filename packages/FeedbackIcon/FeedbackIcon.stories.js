@@ -1,6 +1,6 @@
 import React from 'react'
-import FeedbackIcon from './FeedbackIcon'
-import { withKnobs, select, text } from '@storybook/addon-knobs'
+import FeedbackIcon, { FEEDBACK_ICON_NAME, SIZES } from './FeedbackIcon'
+import { withKnobs, select } from '@storybook/addon-knobs'
 
 export default {
   title: 'Design System|FeedbackIcon',
@@ -8,22 +8,24 @@ export default {
   decorators: [withKnobs],
 }
 
-export const success = () => <FeedbackIcon state="success" />
-
-export const error = () => <FeedbackIcon state="error" />
-
-export const waiting = () => <FeedbackIcon state="waiting" />
-
-export const disabled = () => <FeedbackIcon state="disabled" />
+export const error = () => <FeedbackIcon name={FEEDBACK_ICON_NAME.ERROR} size={SIZES.SMALL} />
 
 export const Playground = () => {
   return (
     <FeedbackIcon
-      state={select('state', ['success', 'error', 'waiting', 'disabled'], 'disabled')}
-      size={text('size', '1.125rem')}
+      name={select(
+        'name',
+        [FEEDBACK_ICON_NAME.CHECKMARK, FEEDBACK_ICON_NAME.ERROR, FEEDBACK_ICON_NAME.LOADER],
+        FEEDBACK_ICON_NAME.CHECKMARK
+      )}
+      size={select('size', [SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE], SIZES.SMALL)}
     />
   )
 }
+
+export const success = () => <FeedbackIcon name={FEEDBACK_ICON_NAME.CHECKMARK} size={SIZES.SMALL} />
+
+export const waiting = () => <FeedbackIcon name={FEEDBACK_ICON_NAME.LOADER} size={SIZES.SMALL} />
 
 Playground.story = {
   name: 'playground',
